@@ -2,9 +2,10 @@
 
 @section('titulo', 'iniar Sesion')
 @section('contenido')
+    <h2>Carrito de Compras </h2>
 
-    <h2>Registrarse</h2>
-     <button><a href="{{ route('tiendaVirtual.pasarela') }}">Registrarse</a></button>
+
+    <button><a href="{{ route('tiendaOnline.iniciarsesion') }}">Pagar</a></button>
  
 
 

@@ -17,19 +17,18 @@
             <h3><a href="">Inicio</a></h3>
             <h3><a href="{{ route('clientes.index') }}">Clientes</a></h3>
             <h3><a href="{{ route('empleados.index') }}">Empleados</a></h3>
-            <h3><a href="">Vender</a></h3>
-            <h3><a href="">Caja</a></h3>
             <h3><a href="{{ route('productos.index') }}">Productos</a></h3>
-            <h3><a href="">Codificar</a></h3>
-            <h3><a href="">Graficos</a></h3>
-            <h3><a href="">Modificar</a></h3>
-            <h3><a href="">Pedidos</a></h3>
-            <h3><a href="">Recibos</a></h3>
-            <h3><a href="">Reportes</a></h3>
+            <h3><a href="{{ route('ventas.index') }}">Vender</a></h3>
+            <h3><a href="{{ route('cajas.index') }}">Caja</a></h3>
+            <h3><a href="{{ route('codificar.index') }}">Codificar</a></h3>
+            <h3><a href="{{ route('estadisticas.index') }}">Graficos</a></h3>
+            <h3><a href="{{ route('tienda.index') }}">Tienda</a></h3>
+            <h3><a href="{{ route('pedidos.index') }}">Pedidos</a></h3>
+            <h3><a href="{{ route('reportes.index') }}">Reportes</a></h3>
+            <h3><a href="{{ route('comprobantes.index') }}">Comprobantes</a></h3>
             <h3><a href=""> </a></h3>
-            <h3><a href=""> </a></h3>
-            <h3><a href=""> </a></h3>
-            <h3><a href="{{ route('tiendaVirtual.index') }}">Tienda Online</a></h3>
+            <br><br><br><br>
+            <h3><a href="{{ route('tiendaOnline.index') }}">Tienda Onlinee</a></h3>
 
 
 
@@ -87,7 +86,7 @@
     button {
         background-color: #ffcc44;
         height: 40px;
-        width: 150px;
+        width: 180px;
         border-radius: 5px;
         border: solid #f5bb1c 1px;
         font-size: 20px;

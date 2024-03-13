@@ -18,22 +18,22 @@ class ClienteController extends Controller
     {
         return view('clientes.create');
     }
-    public function update()
+    public function edit($cliente)
     {
-        return view('clientes.update');
+        return view('clientes.edit', compact('cliente'));
     }
 
-    public function show( $clientes)
+    public function show( $cliente)
     {
 
-        return view('clientes.show');
+        return view('clientes.show', compact('cliente'));
     }
    
     public function store()
     {
         return "Estoy creando";
     }
-    public function edit($cliente)
+    public function update($cliente)
     {
         return "Estoy actualizando";
     }

@@ -2,7 +2,7 @@
 
 @section('titulo', 'ver detalle')
 @section('contenido')
-    <h2>Detalles de Cliente</h2>
+    <h2>Detalles de Cliente {{$cliente}}</h2>
 
 
 

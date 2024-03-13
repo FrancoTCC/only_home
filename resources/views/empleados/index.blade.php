@@ -40,22 +40,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($empleados as $empleado)
-                    <tr>
-
-                        <td>{{ $empleado->nombre }}</td>
-                        <td>{{ $empleado->apellidoPat }} {{ $empleados->apellidoMat }}</td>
-                        <td>{{ $empleado->celular }}</td>
-                        <td>{{ $empleado->cargo }}</td>
-                        <td style="width: 280px"><button class="btn-table"><a href="{{ route('empleados.show', $cliente) }}">Ver Más</a></button>
-                            <button class="btn-table"><a href="{{ route('empleados.update', $cliente) }}">Actualizar</a></button>
-                            <button class="btn-table"><a href="">Eliminar</a></button>
-                        </td>
-
-
-
-                    </tr>
-                @endforeach
+                
             </tbody>
         </table>
     </div>

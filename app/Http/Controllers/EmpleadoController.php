@@ -10,30 +10,29 @@ class EmpleadoController extends Controller
     public function index()
     {
 
-        $empleados = Empleado::all();
-        return view('empleados.index', compact('empleados'));
+        return view('empleados.index');
     }
 
     public function create()
     {
         return view('empleados.create');
     }
-    public function update()
+    public function edit($empleado)
     {
-        return view('empleados.update');
+        return view('empleados.edit', compact('empleado'));
     }
 
-    public function show($empleados)
+    public function show($empleado)
     {
 
-        return view('empleados.show');
+        return view('empleados.show', compact('empleado'));
     }
 
     public function store()
     {
         return "Estoy creando";
     }
-    public function edit($empleado)
+    public function update($empleado)
     {
         return "Estoy actualizando";
     }

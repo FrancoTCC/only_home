@@ -45,8 +45,9 @@
                         <td>{{ $cliente->nombre }}</td>
                         <td>{{ $cliente->apellidoPat }} {{ $cliente->apellidoMat }}</td>
                         <td>{{ $cliente->celular }}</td>
-                        <td style="width: 280px"><button class="btn-table"><a href="{{ route('clientes.show', $cliente) }}">Ver Más</a></button>
-                            <button class="btn-table"><a href="{{ route('clientes.update', $cliente) }}">Actualizar</a></button>
+                        <td style="width: 280px"><button class="btn-table"><a href="{{ route('clientes.show', $cliente) }}">Ver
+                                    Más</a></button>
+                            <button class="btn-table"><a href="{{ route('clientes.edit', $cliente) }}">Actualizar</a></button>
                             <button class="btn-table"><a href="">Eliminar</a></button>
                         </td>
 

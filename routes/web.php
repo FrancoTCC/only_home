@@ -1,8 +1,24 @@
 <?php
 
+use App\Http\Controllers\CajaController;
+use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\CodificarController;
+use App\Http\Controllers\ComprobanteController;
+use App\Http\Controllers\DescuentoController;
 use App\Http\Controllers\EmpleadoController;
+use App\Http\Controllers\EstadisticaController;
+use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\ProveedorController;
+use App\Http\Controllers\ReporteController;
+use App\Http\Controllers\RolController;
+use App\Http\Controllers\ServicioController;
+use App\Http\Controllers\TiendaController;
+use App\Http\Controllers\TiendaOnlineController;
+use App\Http\Controllers\TiendaProductoController;
+use App\Http\Controllers\VentaController;
+use App\Models\Empleado;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,81 +36,61 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::resource('clientes', ClienteController::class);
 
-Route::controller(ClienteController::class)->group(function () {
+/*Route::controller(ClienteController::class)->group(function () {
     Route::get('clientes', 'index')->name('clientes.index');
-    Route::get('clientes/crear', 'create')->name('clientes.create');
-    Route::get('clientes/actualizar/{cliente}', 'update')->name('clientes.update');
-    Route::get('clientes/detalle/{cliente}', 'show')->name('clientes.show');
+    Route::get('clientes/create', 'create')->name('clientes.create');
+    Route::get('clientes/{cliente}/edit', 'edit')->name('clientes.edit');
+    Route::get('clientes/{cliente}', 'show')->name('clientes.show');
     Route::post('clientes', 'store')->name('clientes.store');
-    Route::put('clientes/{cliente}', 'edit')->name('clientes.edit');
+    Route::put('clientes/{cliente}', 'update')->name('clientes.update');
     Route::delete('clientes/{cliente}', 'destroy')->name('clientes.destroy');
 });
 
+*/
+Route::resource('empleados', EmpleadoController::class);
+
+Route::resource('roles', RolController::class);
+
+Route::resource('productos', ProductoController::class);
+
+Route::resource('categorias', CategoriaController::class);
+
+Route::resource('proveedores', ProveedorController::class);
+
+Route::resource('tienda/productos', TiendaProductoController::class)->names('tiendaProductos');
+
+Route::resource('tienda/servicios', ServicioController::class)->names('tiendaServicios');
+
+Route::resource('tienda/descuentos', DescuentoController::class)->names('tiendaDescuentos');
+
+
+Route::get('tienda', [TiendaController::class, 'index'])->name('tienda.index');
+Route::get('ventas', [VentaController::class, 'index'])->name('ventas.index');
+Route::get('caja', [CajaController::class, 'index'])->name('cajas.index');
+Route::get('codificar', [CodificarController::class, 'index'])->name('codificar.index');
+Route::get('estadisticas', [EstadisticaController::class, 'index'])->name('estadisticas.index');
+Route::get('pedidos', [PedidoController::class, 'index'])->name('pedidos.index');
+Route::get('comprobantes', [ComprobanteController::class, 'index'])->name('comprobantes.index');
+Route::get('reportes', [ReporteController::class, 'index'])->name('reportes.index');
+
+Route::controller(TiendaOnlineController::class)->group(function(){
+    Route::get('onlyhome/inicio', 'index')->name('tiendaOnline.index');
+    Route::get('onlyhome/categoria', 'categoria')->name('tiendaOnline.categoria');
+    Route::get('onlyhome/detalle', 'detalle')->name('tiendaOnline.detalle');
+    Route::get('onlyhome/carrito', 'carrito')->name('tiendaOnline.carrito');
+    Route::get('onlyhome/iniciarsesion', 'iniciarsesion')->name('tiendaOnline.iniciarsesion');
+    Route::get('onlyhome/registrarse', 'registrarse')->name('tiendaOnline.registrarse');
+    Route::get('onlyhome/pasarela', 'pasarela')->name('tiendaOnline.pasarela');
+    Route::get('onlyhome/pedidos', 'pedidos')->name('tiendaOnline.pedidos');
 
 
 
-Route::controller(EmpleadoController::class)->group(function () {
-    Route::get('empleados', 'index')->name('empleados.index');
-    Route::get('empleados/crear', 'create')->name('empleados.create');
-    Route::get('empleados/actualizar/{empleado}', 'update')->name('empleados.update');
-    Route::get('empleados/detalle/{empleado}', 'show')->name('empleados.show');
-    Route::post('empleados', 'store')->name('empleados.store');
-    Route::put('empleados/{empleado}', 'edit')->name('empleados.edit');
-    Route::delete('empleados/{empleado}', 'destroy')->name('empleados.destroy');
 });
 
-Route::controller(ProductoController::class)->group(function () {
-    Route::get('productos', 'index')->name('productos.index');
-    Route::get('productos/crear', 'create')->name('productos.create');
-    Route::get('productos/actualizar/{producto}', 'update')->name('productos.update');
-    Route::get('productos/detalle/{producto}', 'show')->name('productos.show');
-    Route::post('productos', 'store')->name('productos.store');
-    Route::put('productos/{producto}', 'edit')->name('productos.edit');
-    Route::delete('productos/{producto}', 'destroy')->name('productos.destroy');
-});
 
 
-
-
-
-
-
-
-
-
-Route::get('onlyhome/inicio', function () {
-    return view('tienda.index');
-})->name('tiendaVirtual.index');
-
-Route::get('onlyhome/categoria', function () {
-    return view('tienda.categoria');
-})->name('tiendaVirtual.categoria');
-
-
-Route::get('onlyhome/carrito', function () {
-    return view('tienda.carrito');
-})->name('tiendaVirtual.carrito');
-
-Route::get('onlyhome/iniciarsesion', function () {
-    return view('tienda.iniciarSesion');
-})->name('tiendaVirtual.iniciarsesion');
-
-Route::get('onlyhome/pasarela', function () {
-    return view('tienda.pasarela');
-})->name('tiendaVirtual.pasarela');
-
-Route::get('onlyhome/pedido', function () {
-    return view('tienda.pedido');
-})->name('tiendaVirtual.pedido');
-
-Route::get('onlyhome/registrarse', function () {
-    return view('tienda.registrarse');
-})->name('tiendaVirtual.registrarse');
-
-Route::get('onlyhome/detalle', function () {
-    return view('tienda.show');
-})->name('tiendaVirtual.detalle');
 
 
 
