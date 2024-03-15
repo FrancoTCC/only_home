@@ -1,9 +1,11 @@
 @extends('template.plantillaTiendaVirtual')
 
-@section('titulo', 'iniar Sesion')
+@section('titulo', 'Pasarela de Pagos<')
 @section('contenido')
 
-    <h2>Pasarela de Pago</h2>
+    <section class="container-caja">
+        <h2 class="subtitulo">Pasarela de Pagos</h2>
+    </section>
  
 
 

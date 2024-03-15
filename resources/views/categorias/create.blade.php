@@ -1,8 +1,8 @@
 @extends('template.plantilla')
 
-@section('titulo', 'productos')
+@section('titulo', 'Categoriasr')
 @section('contenido')
-    <h2>Crear Productos</h2>
+    <h2>Crear Categorias</h2>
 
 
 

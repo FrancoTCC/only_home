@@ -5,6 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/tiendaOnline.css') }}">
+
+
     <title>@yield('titulo')</title>
 </head>
 
@@ -26,7 +30,56 @@
     <div class="contenido">
         @yield('contenido')
     </div>
-    </div>
+
+    <footer>
+        <div class="footer">
+            <div class="logo">
+                <h3>Only Home</h3>
+            </div>
+            <div class="nosotros">
+                <h3>Nosotros</h3>
+                <a class="a-footer" href="{{ route('tiendaOnline.nosotros') }}">Nosotros</a>
+                <h3>Politicas</h3>
+                <a class="a-footer" href="{{ route('tiendaOnline.politicas') }}">Politicas</a>
+            </div>
+            <div class="horario">
+                <h3>Horario de Antension</h3>
+                <p>lunes a sabado</p>
+                <p>07.00 /20.00</p>
+                <p>Domingo: 08.00 /18.00</p>
+            </div>
+            <div class="contactos">
+                <h3>Contactos</h3>
+                <p>Telefono: 968562314</p>
+                <p>Telefono: 966262314</p>
+                <p>Correo: onlyhome@xx.com.pe</p>
+            </div>
+            <div class="libro">
+                <h3>Libro de Reclmaciones</h3>
+                <a class="a-footer" href="{{ route('tiendaOnline.libroreclamaciones') }}">Libro</a>
+            </div>
+            <div class="redes">
+                <h3>Redes Sociales</h3>
+                <a class="a-footer" href="https://web.facebook.com">Facebook</a>
+                <a class="a-footer" href="">Instagram</a>
+                <a class="a-footer" href="">Whatsapp</a>
+
+            </div>
+            <div class="suscribirse">
+                <form action="">
+                    <label for="">
+                        <input class="input" type="email" placeholder="Correo Electronico">
+                        <input class="btn" type="submit" value="Suscribirse">
+                    </label>
+                </form>
+            </div>
+
+        </div>
+        <div class="copi">
+            <p>copyring: xxx</p>
+        </div>
+    </footer>
+
 
 
 
@@ -73,8 +126,9 @@
 
 
 
-        .contenido{
+        .contenido {
             margin: 25px;
+            position: relative;
         }
     </style>
 

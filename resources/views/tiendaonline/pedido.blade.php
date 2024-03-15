@@ -1,10 +1,12 @@
 @extends('template.plantillaTiendaVirtual')
 
-@section('titulo', 'iniar Sesion')
+@section('titulo', 'Mis pedidos')
 @section('contenido')
 
-    <h2>Mis Pedidos</h2>
-
+    <section class="container-caja">
+        <h2 class="subtitulo">Mis pedidos</h2>
+    </section>
+ 
 
 
 @endsection

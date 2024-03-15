@@ -8,6 +8,8 @@ use App\Http\Controllers\ComprobanteController;
 use App\Http\Controllers\DescuentoController;
 use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\EstadisticaController;
+use App\Http\Controllers\InicioController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\ProveedorController;
@@ -19,6 +21,7 @@ use App\Http\Controllers\TiendaOnlineController;
 use App\Http\Controllers\TiendaProductoController;
 use App\Http\Controllers\VentaController;
 use App\Models\Empleado;
+use Illuminate\Auth\Events\Login;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,6 +39,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('iniciarsesion', [LoginController::class, 'index'])->name('login.index');
+Route::get('inicio', [InicioController::class, 'index'])->name('inicio.index');
 Route::resource('clientes', ClienteController::class);
 
 /*Route::controller(ClienteController::class)->group(function () {
@@ -75,7 +80,7 @@ Route::get('pedidos', [PedidoController::class, 'index'])->name('pedidos.index')
 Route::get('comprobantes', [ComprobanteController::class, 'index'])->name('comprobantes.index');
 Route::get('reportes', [ReporteController::class, 'index'])->name('reportes.index');
 
-Route::controller(TiendaOnlineController::class)->group(function(){
+Route::controller(TiendaOnlineController::class)->group(function () {
     Route::get('onlyhome/inicio', 'index')->name('tiendaOnline.index');
     Route::get('onlyhome/categoria', 'categoria')->name('tiendaOnline.categoria');
     Route::get('onlyhome/detalle', 'detalle')->name('tiendaOnline.detalle');
@@ -84,24 +89,16 @@ Route::controller(TiendaOnlineController::class)->group(function(){
     Route::get('onlyhome/registrarse', 'registrarse')->name('tiendaOnline.registrarse');
     Route::get('onlyhome/pasarela', 'pasarela')->name('tiendaOnline.pasarela');
     Route::get('onlyhome/pedidos', 'pedidos')->name('tiendaOnline.pedidos');
+    Route::get('onlyhome/pedidos/detalles', 'pedidosdetalles')->name('tiendaOnline.pedidosdetalles');
+    Route::get('onlyhome/servicios', 'servicios')->name('tiendaOnline.servicios');
+    Route::get('onlyhome/mejorescalificados', 'mejorescalificados')->name('tiendaOnline.mejorescalificados');
+    Route::get('onlyhome/descuentos', 'descuentos')->name('tiendaOnline.descuentos');
+    Route::get('onlyhome/politicas', 'politicas')->name('tiendaOnline.politicas');
+    Route::get('onlyhome/nosotros', 'nosotros')->name('tiendaOnline.nosotros');
+    Route::get('onlyhome/libroreclamaciones', 'libroreclamaciones')->name('tiendaOnline.libroreclamaciones');
+    Route::get('onlyhome/recuperarcontraseña', 'recuperarcontraseña')->name('tiendaOnline.recuperarcontraseña');
+
 
 
 
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -10,30 +10,30 @@ class ProductoController extends Controller
     public function index()
     {
 
-        $productos = Producto::all();
-        return view('productos.index', compact('productos'));
+
+        return view('productos.index');
     }
 
     public function create()
     {
         return view('productos.create');
     }
-    public function update()
+    public function edit($producto)
     {
-        return view('productos.update');
+        return view('productos.edit', compact('producto'));
     }
 
     public function show($producto)
     {
 
-        return view('productos.show');
+        return view('productos.show', compact('producto'));
     }
 
     public function store()
     {
         return "Estoy creando";
     }
-    public function edit($producto)
+    public function update($producto)
     {
         return "Estoy actualizando";
     }

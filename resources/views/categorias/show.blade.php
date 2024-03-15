@@ -2,7 +2,7 @@
 
 @section('titulo', 'ver detalle')
 @section('contenido')
-    <h2>Detalles de Producto {{$producto}}</h2>
+    <h2>Detalles de Categorias {{$categoria}}</h2>
 
 
 
